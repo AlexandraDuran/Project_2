@@ -1,0 +1,118 @@
+*{
+    margin: 50px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+.container{
+    position: relative;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .ring{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: -80px; /*hace que se cruzen los circuloss*/
+    border-radius: 50%;
+    border: 5px solid transparent;/*hacer transpaentes los bordes del circulo*/
+    border-top: 4px solid #24ecff; /*bordes superiores del circulo*/
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+.container .ring::before{
+   content: '';
+   position: absolute;
+   top:46px;
+   right: 52px;
+   border-radius: 50%;
+   width: 15px;
+   height: 15px;
+   background: #24ecff;
+    box-shadow: 0 0 0 5px #24ecff44, /*ocapacidad de la sombra*/
+    0 0 0 10px #24ecff22,
+    0 0 0 20px #24ecff22,
+    0 0 20px #24ecff,
+    0 0 50px #24ecff;
+}
+.container .ring:nth-child(2){
+    animation: animate2 4s linear infinite;
+    animation-delay: -1s;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #24ecff;
+}
+.container .ring:nth-child(2)::before{
+    content: '';
+    position: absolute;
+    left: 46px; /*cambia la cabeza*/
+    right: 52px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #24ecff;
+    box-shadow: 0 0 0 5px #24ecff44, /*ocapacidad de la sombra*/
+    0 0 0 10px #24ecff22,
+    0 0 0 20px #24ecff22,
+    0 0 20px #24ecff,
+    0 0 50px #24ecff;
+ }
+ @keyframes animate2{
+     0%
+     {
+         transform: rotate(360deg);
+     }
+     100%
+     {
+         transform: rotate(0deg); 
+     }
+ }
+ .container .ring:nth-child(3){
+    animation: animate2 4s linear infinite;
+    animation-delay: -3s;
+    position: absolute;
+    top:-200px;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #24ecff;
+ }
+
+ .container .ring:nth-child(3)::before{
+    content: '';
+    position: absolute;
+    left:46px;
+    right: 52px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #24ecff;
+     box-shadow: 0 0 0 5px #24ecff44, /*ocapacidad de la sombra*/
+     0 0 0 10px #24ecff22,
+     0 0 0 20px #24ecff22,
+     0 0 20px #24ecff,
+     0 0 50px #24ecff;
+ }
+
+
+.container p{
+    position: absolute;
+    color: #fff;
+    font-family: consolas;
+    letter-spacing: 0.15em;
+    /*agrandar letra falta*/
+}
